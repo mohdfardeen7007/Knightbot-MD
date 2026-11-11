@@ -30,7 +30,9 @@ async function playCommand(sock, chatId, message) {
         const urlYt = video.url;
 
         // Fetch audio data from API
-        const response = await axios.get(`https://apis-keith.vercel.app/download/dlmp3?url=${urlYt}`);
+        const response = await axios.get(
+            `https://my-downloader-api-lake.vercel.app/api/ytmp3?apikey=fardeen786key&url=${encodeURIComponent(urlYt)}`
+        );
         const data = response.data;
 
         if (!data || !data.status || !data.result || !data.result.downloadUrl) {
